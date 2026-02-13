@@ -22,6 +22,7 @@ public class LibraryApplication extends Application{
             primaryStage.show();
         } catch (NullPointerException e) {
             System.out.println(e + ": File not found");
+            System.exit(0);
         }
     }
 }
