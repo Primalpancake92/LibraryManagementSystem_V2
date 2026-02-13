@@ -6,21 +6,51 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import java.net.URL?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
 
 <VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="org.lbs.Controller.Login">
-    <Label>
+    <Label styleClass="heading">
         Welcome to OpenShelf
     </Label>
     <Label>
         Please enter your login details.
     </Label>
     <VBox styleClass="login-box">
-        <Label>Username:</Label>
-        <TextField>
+        <Label>Username:
+            <VBox.margin>
+                <Insets bottom="3" left="5"/>
+            </VBox.margin>
+        </Label>
+        <TextField styleClass="input-field">
+            <VBox.margin>
+                <Insets bottom="10"/>
+            </VBox.margin>
         </TextField>
+        <Label>Password:
+            <VBox.margin>
+                <Insets bottom="3" left="5"/>
+            </VBox.margin>
+        </Label>
+        <PasswordField styleClass="input-field">
+            <VBox.margin>
+                <Insets bottom="15"/>
+            </VBox.margin>
+        </PasswordField>
+        <HBox styleClass="btn-container">
+            <Button styleClass="register-btn" text="Register">
+                <HBox.margin>
+                    <Insets right="5"/>
+                </HBox.margin>
+            </Button>
+            <Button styleClass="login-btn" text="Login">
+            </Button>
+        </HBox>
     </VBox>
 
-    <stylesheets >
+    <stylesheets>
         <URL value="@styles.css"/>
     </stylesheets>
 </VBox>

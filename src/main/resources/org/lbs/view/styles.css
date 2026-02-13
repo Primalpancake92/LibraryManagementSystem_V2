@@ -1,3 +1,48 @@
-.login-box .label{
-    -fx-min-width: 50px;
+@font-face {
+    font-family: "Google sans flex";
+    src: url("/fonts/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.ttf");
+}
+
+.root {
+    -fx-font-family: "Google sans flex";
+}
+
+.heading {
+    -fx-font-size: 2em;
+}
+
+.login-box{
+    -fx-alignment: center_left;
+    -fx-padding: 2em 8em 2em 8em;
+    -fx-max-width: 700px;
+}
+
+.input-field{
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-max-width: 500px;
+}
+
+.input-field:focused {
+    -fx-border-width: 1px;
+    -fx-border-color: #F07039;
+    -fx-effect: innershadow(gaussian, #F07039, 8, 0.2, 0, 0);
+}
+
+.btn-container {
+    -fx-alignment: center;
+}
+
+.login-btn {
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+    -fx-padding: 5px 10px 5px 10px;
+    -fx-background-color: #F07039;
+    -fx-text-fill: white;
+}
+
+.register-btn {
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+    -fx-padding: 5px 10px 5px 10px;
 }
