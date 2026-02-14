@@ -36,13 +36,29 @@
 .login-btn {
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
-    -fx-padding: 5px 10px 5px 10px;
+    -fx-padding: 4px 10px 4px 10px;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #F07039;
+    -fx-border-width: 1px;
+    -fx-border-color: #F07039;
+}
+
+.login-btn:hover {
     -fx-background-color: #F07039;
     -fx-text-fill: white;
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
 }
 
 .register-btn {
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
-    -fx-padding: 5px 10px 5px 10px;
+    -fx-padding: 4px 10px 4px 10px;
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+}
+
+.register-btn:hover {
+    -fx-cursor: hand;
 }
