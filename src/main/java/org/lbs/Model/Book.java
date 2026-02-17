@@ -1,17 +1,17 @@
-package org.lbs.Model.application;
+package org.lbs.Model;
 
 import javafx.beans.property.*;
 
 public class Book {
     private final String title;
     private final String author;
-    private final int id;
+    private final int book_id;
     private final BooleanProperty borrowed;
 
-    public Book(String title, String author, int id) {
+    public Book(String title, String author, int book_id) {
         this.title = title;
         this.author = author;
-        this.id = id;
+        this.book_id = book_id;
         this.borrowed = new SimpleBooleanProperty(false);
     }
 
@@ -23,8 +23,8 @@ public class Book {
         return this.author;
     }
 
-    public int getId() {
-        return this.id;
+    public int getBookId() {
+        return this.book_id;
     }
 
     public void borrowBook() {
@@ -59,7 +59,7 @@ public class Book {
     public String toString() {
         String summary = "Book: %s\nId: %d\nAuthor: %s";
 
-        return String.format(summary, this.title, this.id, this.author);
+        return String.format(summary, this.title, this.book_id, this.author);
     }
 
     /*public static void main (String[] args) {

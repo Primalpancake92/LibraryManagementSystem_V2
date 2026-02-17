@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.lbs.Model.application.User;
+import org.lbs.Model.User;
 
 public class LoginController {
     private User model;

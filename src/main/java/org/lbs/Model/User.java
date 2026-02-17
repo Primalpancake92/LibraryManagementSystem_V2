@@ -1,4 +1,4 @@
-package org.lbs.Model.application;
+package org.lbs.Model;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;

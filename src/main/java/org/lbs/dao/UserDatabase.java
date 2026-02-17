@@ -9,15 +9,12 @@ public class UserDatabase {
 
     public static void initiateUsers() {
         String createUsersDatabase = "CREATE TABLE IF NOT EXISTS User ("
-                + "id INTEGER PRIMARY KEY AUTOINCREMENT"
+                + "user-id INTEGER PRIMARY KEY AUTOINCREMENT"
+                + "password TEXT NOT NULL"
                 + "first-name TEXT NOT NULL"
                 + "last-name TEXT NOT NULL"
                 + "age INTEGER NOT NULL"
                 + "email STRING NOT NULL"
                 + "book-borrowed STRING NOT NULL";
-    }
-
-    public static void initialiseBooks() {
-
     }
 }
