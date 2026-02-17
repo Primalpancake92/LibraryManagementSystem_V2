@@ -14,11 +14,11 @@ public class LibraryApplication extends Application{
     }
 
     @Override
-    public void start(Stage primaryStage)  throws Exception {
+    public void start(Stage primaryStage) throws Exception {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/org/lbs/view/loginView.fxml"));
             primaryStage.setTitle("FXML Starter App");
-            primaryStage.setScene(new Scene(root, 600, 400));
+            primaryStage.setScene(new Scene(root, 1366, 768));
             primaryStage.show();
         } catch (NullPointerException e) {
             System.out.println(e + ": File not found");

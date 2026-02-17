@@ -22,7 +22,7 @@
                 <Insets bottom="3" left="5"/>
             </VBox.margin>
         </Label>
-        <TextField styleClass="input-field">
+        <TextField styleClass="input-field" fx:id="userTf">
             <VBox.margin>
                 <Insets bottom="10"/>
             </VBox.margin>
@@ -32,18 +32,18 @@
                 <Insets bottom="3" left="5"/>
             </VBox.margin>
         </Label>
-        <PasswordField styleClass="input-field">
+        <PasswordField styleClass="input-field" fx:id="passwordTf">
             <VBox.margin>
                 <Insets bottom="15"/>
             </VBox.margin>
         </PasswordField>
         <HBox styleClass="btn-container">
-            <Button styleClass="register-btn" text="Register">
+            <Button styleClass="register-btn" text="Register" fx:id="registerBtn">
                 <HBox.margin>
                     <Insets right="5"/>
                 </HBox.margin>
             </Button>
-            <Button styleClass="login-btn" text="Login">
+            <Button styleClass="login-btn" text="Login" fx:id="loginBtn">
             </Button>
         </HBox>
     </VBox>
