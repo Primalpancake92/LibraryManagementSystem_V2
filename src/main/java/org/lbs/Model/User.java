@@ -49,7 +49,7 @@ public class User {
 
     private void setPassword (String password) {
         password = this.password;
-
+    }
 
     // property setters and getters here
     public Book getBook() {
