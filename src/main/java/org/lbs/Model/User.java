@@ -5,14 +5,16 @@ import javafx.beans.property.SimpleObjectProperty;
 
 public class User {
     private final int id;
-    private final String firstName;
-    private final String lastName;
+    private final String password; // remember to make this into a property
+    private final String firstName; // remember to make this into a property
+    private final String lastName; // remember to make this into a property
     private final int age;
     private final String email;
     private final ObjectProperty<Book> book;
 
-    public User(int id, String firstName, String lastName, int age, String email, Book book) {
+    public User(int id, String password, String firstName, String lastName, int age, String email, Book book) {
         this.id = id;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -23,6 +25,10 @@ public class User {
     // getters here
     private int getId() {
         return id;
+    }
+
+    private String getPassword() {
+        return password;
     }
 
     public String getFirstName() {
@@ -39,6 +45,14 @@ public class User {
 
     private String returnEmail() {
         return this.email;
+    }
+
+    private void setPassword (String password) {
+        password = this.password;
+    }
+
+    public void hashPassword (password = this.get) {
+
     }
 
     // property setters and getters here
