@@ -32,18 +32,19 @@
                 <Insets bottom="3" left="5"/>
             </VBox.margin>
         </Label>
-        <PasswordField styleClass="input-field" fx:id="passwordTf">
+        <PasswordField styleClass="input-field" fx:id="passwordTf"/>
+        <Label styleClass="error-field" fx:id="errorField">
             <VBox.margin>
-                <Insets bottom="15"/>
+                <Insets top="5" bottom="3" left="5"/>
             </VBox.margin>
-        </PasswordField>
+        </Label>
         <HBox styleClass="btn-container">
             <Button styleClass="register-btn" text="Register" fx:id="registerBtn">
                 <HBox.margin>
                     <Insets right="5"/>
                 </HBox.margin>
             </Button>
-            <Button styleClass="login-btn" text="Login" fx:id="loginBtn">
+            <Button styleClass="login-btn" text="Login" fx:id="loginBtn" onAction="#userLogin">
             </Button>
         </HBox>
     </VBox>

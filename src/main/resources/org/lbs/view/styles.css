@@ -62,3 +62,7 @@
 .register-btn:hover {
     -fx-cursor: hand;
 }
+
+.error-field {
+    -fx-text-fill: red;
+}

@@ -15,6 +15,6 @@ public class UserDatabase {
                 + "last_name TEXT NOT NULL"
                 + "age INTEGER NOT NULL"
                 + "email STRING NOT NULL"
-                + "book-borrowed STRING NOT NULL";
+                + "book_borrowed STRING NOT NULL";
     }
 }

@@ -4,7 +4,7 @@ import javafx.application.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.stage.*;
-
+import org.lbs.database.DatabaseConnection;
 import java.io.IOException;
 
 
