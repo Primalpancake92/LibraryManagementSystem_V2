@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDAO {
-    private final Connection databaseConnection = DatabaseConnection.connect();
+    private final Connection databaseConnection = DatabaseConnection.getConnection();
     // This class is for user authentication when logging in.
     public User authenticateUser (int enteredUserId, String enteredPassword) {
         /*

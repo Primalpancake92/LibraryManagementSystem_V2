@@ -5,9 +5,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private static Connection connection = null; // produces one database connection
+    private static Connection connection; // produces one database connection
 
-    public static Connection connect() {
+    public static void connect() {
         try {
             String url = "jdbc:sqlite:lddb.db";
             connection = DriverManager.getConnection(url);
@@ -15,7 +15,17 @@ public class DatabaseConnection {
         } catch (SQLException e) {
             System.out.println(e + " - Database not found.");
         }
-
-        return connection; // this returns the database connection
     }
+
+    public static Connection getConnection() {
+        return connection;
+    }
+
+    // Everything works as intended when the db conection.
+    /*
+    public static void main(String[] args) {
+        connect();
+        System.out.println(getConnection() + " Connection");
+    }
+    */
 }

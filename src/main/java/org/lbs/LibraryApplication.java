@@ -4,12 +4,15 @@ import javafx.application.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.stage.*;
+import org.lbs.dao.UserDatabase;
 import org.lbs.database.DatabaseConnection;
 import java.io.IOException;
 
 
 public class LibraryApplication extends Application{
     public static void main(String[] args) {
+        UserDatabase userDb = new UserDatabase();
+        userDb.createUsersTable();
         launch(args);
     }
 
