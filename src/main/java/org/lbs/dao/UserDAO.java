@@ -11,17 +11,17 @@ import java.sql.SQLException;
 public class UserDAO {
     private final Connection databaseConnection = DatabaseConnection.getConnection();
     // This class is for user authentication when logging in.
-    public User authenticateUser (int enteredUserId, String enteredPassword) {
+    public User authenticateUser (String enteredEmail, String enteredPassword) {
         /*
         Remember to obfuscate the sensitive information from the end user.
         This ensures security of user account storage.
         */
-        String findUser = "SELECT user_id, password"
+        String findUser = "SELECT email, password"
                         + "FROM User"
-                        + "WHERE user_id = ? AND password = ?";
+                        + "WHERE email = ? AND password = ?";
 
         try (PreparedStatement prepstatement = databaseConnection.prepareStatement(findUser)) {
-            prepstatement.setInt(1, enteredUserId);
+            prepstatement.setString(1, enteredEmail);
             prepstatement.setString(2, enteredPassword);
 
             ResultSet rs = prepstatement.executeQuery();

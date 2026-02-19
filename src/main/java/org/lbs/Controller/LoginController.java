@@ -27,19 +27,14 @@ public class LoginController {
 
         If it matches then let the user load up the next page.
     */
-    @FXML
-    public void intialize() {
-
-    }
 
     @FXML
     public void userLogin() {
-        String username = userTf.getText();
+        String email = userTf.getText();
         String password = passwordTf.getText();
 
-        if (!username.isEmpty() && !password.isEmpty()) {
-            int userId = Integer.parseInt(username);
-            userReturnLogic(userDAO.authenticateUser(userId, password));
+        if (!email.isEmpty() && !password.isEmpty()) {
+            userReturnLogic(userDAO.authenticateUser(email, password));
         } else {
             errorField.setText("You have not typed anything.");
         }

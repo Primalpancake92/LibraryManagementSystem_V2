@@ -6,14 +6,23 @@ import javafx.scene.*;
 import javafx.stage.*;
 import org.lbs.dao.UserDatabase;
 import org.lbs.database.DatabaseConnection;
-import java.io.IOException;
+
+import java.sql.Connection;
 
 
 public class LibraryApplication extends Application{
     public static void main(String[] args) {
-        UserDatabase userDb = new UserDatabase();
-        userDb.createUsersTable();
-        launch(args);
+        DatabaseConnection.connect();
+
+        Connection db = DatabaseConnection.getConnection();
+
+        if (db != null) {
+            UserDatabase userDb = new UserDatabase();
+            userDb.createUsersTable();
+            launch(args);
+        } else {
+            System.exit(1);
+        }
     }
 
     @Override

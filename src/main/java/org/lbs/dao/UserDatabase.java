@@ -27,15 +27,4 @@ public class UserDatabase {
             System.out.println("There were no database found.");
         }
     }
-
-    public void initiateUsers() {
-
-
-        try {
-
-        } catch (SQLException e) {
-            System.out.println("pass");
-        }
-
-    }
 }
