@@ -20,15 +20,15 @@ public class UserDAO {
                         + "FROM User"
                         + "WHERE email = ? AND password = ?";
 
-        try (PreparedStatement prepstatement = databaseConnection.prepareStatement(findUser)) {
-            prepstatement.setString(1, enteredEmail);
-            prepstatement.setString(2, enteredPassword);
+        try (PreparedStatement prepStatement = databaseConnection.prepareStatement(findUser)) {
+            prepStatement.setString(1, enteredEmail);
+            prepStatement.setString(2, enteredPassword);
 
-            ResultSet rs = prepstatement.executeQuery();
+            ResultSet rs = prepStatement.executeQuery();
 
+            String password = rs.getString("password");
             if (rs.next()) {
                 int id = rs.getInt("user_id");
-                String password = rs.getString("password");
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
                 int age = rs.getInt("age");

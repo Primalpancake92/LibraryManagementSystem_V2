@@ -39,7 +39,7 @@
             </VBox.margin>
         </Label>
         <HBox styleClass="btn-container">
-            <Button styleClass="register-btn" text="Register" fx:id="registerBtn">
+            <Button styleClass="register-btn" text="Register" fx:id="registerBtn" onAction="#registerView">
                 <HBox.margin>
                     <Insets right="5"/>
                 </HBox.margin>

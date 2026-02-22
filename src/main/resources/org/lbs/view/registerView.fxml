@@ -12,5 +12,23 @@
             prefHeight="400.0" prefWidth="600.0"
             alignment="CENTER">
     <Label text="Registration" styleClass="register-title"/>
-    <Label text="Please fill in all fields" styleClass="register-info"/>
+    <Label text="Please fill in all details." styleClass="register-info"/>
+    <VBox alignment="CENTER">
+        <HBox alignment="CENTER">
+            <VBox>
+                <Label text="First name:"/>
+                <TextField/>
+            </VBox>
+            <VBox>
+                <Label text="Last name:"/>
+                <TextField/>
+            </VBox>
+        </HBox>
+        <Label text="Email:"/>
+        <TextField/>
+        <Label text="Password:"/>
+        <PasswordField/>
+        <Label text="Age:"/>
+        <TextField/>
+    </VBox>
 </VBox>
