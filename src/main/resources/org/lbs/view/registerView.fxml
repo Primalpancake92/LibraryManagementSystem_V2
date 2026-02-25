@@ -5,30 +5,55 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.lbs.Controller.RegisterController"
-            prefHeight="400.0" prefWidth="600.0"
-            alignment="CENTER">
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.lbs.Controller.RegisterController"
+      prefHeight="400.0" prefWidth="600.0"
+      alignment="CENTER">
     <Label text="Registration" styleClass="register-title"/>
     <Label text="Please fill in all details." styleClass="register-info"/>
-    <VBox alignment="CENTER">
-        <HBox alignment="CENTER">
+    <VBox alignment="CENTER" styleClass="login-fields">
+        <HBox alignment="CENTER_LEFT">
             <VBox>
                 <Label text="First name:"/>
-                <TextField/>
+                <TextField styleClass="first-name"/>
+                <HBox.margin>
+                    <Insets top="10" right="10"/>
+                </HBox.margin>
             </VBox>
             <VBox>
                 <Label text="Last name:"/>
-                <TextField/>
+                <TextField styleClass="last-name"/>
+                <HBox.margin>
+                    <Insets top="10"/>
+                </HBox.margin>
             </VBox>
         </HBox>
-        <Label text="Email:"/>
-        <TextField/>
-        <Label text="Password:"/>
-        <PasswordField/>
-        <Label text="Age:"/>
-        <TextField/>
+        <VBox alignment="BASELINE_LEFT">
+            <Label text="Email:"/>
+            <TextField styleClass="email-tf"/>
+
+            <Label text="Password:">
+                <VBox.margin>
+                    <Insets top="10"/>
+                </VBox.margin>
+            </Label>
+            <PasswordField styleClass="password-tf"/>
+
+            <Label text="Age:">
+                <VBox.margin>
+                    <Insets top="10"/>
+                </VBox.margin>
+            </Label>
+            <TextField styleClass="age-tf"/>
+        </VBox>
     </VBox>
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
 </VBox>
+
+

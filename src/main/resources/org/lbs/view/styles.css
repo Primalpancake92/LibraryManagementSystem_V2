@@ -8,7 +8,7 @@
 }
 
 .heading {
-    -fx-font-size: 2em;
+    -fx-font-size: 2.5em;
 }
 
 .login-box{
@@ -20,6 +20,7 @@
 .input-field{
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
+    -fx-padding: 4px 10px 4px 10px;
     -fx-max-width: 500px;
 }
 
@@ -65,4 +66,44 @@
 
 .error-field {
     -fx-text-fill: red;
+}
+
+.register-title{
+    -fx-font-size: 2.5em;
+}
+
+.register-info {
+    -fx-font-size: 1.2em;
+}
+
+.login-fields{
+    -fx-max-width: 500px;
+}
+
+.first-name {
+    -fx-min-width: 250px;
+}
+
+.last-name {
+    -fx-min-width: 250px;
+}
+
+.first-name, .last-name, .email-tf, .password-tf, .age-tf{
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-padding: 4px 10px 4px 10px;
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+}
+
+.first-name:hover, .last-name:hover, .email-tf:hover, .password-tf:hover, .age-tf:hover {
+    -fx-border-width: 1px;
+    -fx-border-color: #F07039;
+    -fx-effect: innershadow(gaussian, #F07039, 8, 0.2, 0, 0);
+}
+
+.first-name:focused, .last-name:focused, .email-tf:focused, .password-tf:focused, .age-tf:focused {
+    -fx-border-width: 1px;
+    -fx-border-color: #F07039;
+    -fx-effect: innershadow(gaussian, #F07039, 8, 0.2, 0, 0);
 }
