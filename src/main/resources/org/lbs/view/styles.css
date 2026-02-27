@@ -107,3 +107,17 @@
     -fx-border-color: #F07039;
     -fx-effect: innershadow(gaussian, #F07039, 8, 0.2, 0, 0);
 }
+
+.back-btn {
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+    -fx-padding: 4px 10px 4px 10px;
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+}
+
+.back-btn:hover {
+    -fx-border-color: #F07039;
+    -fx-border-width: 1px;
+}
