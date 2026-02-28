@@ -4,7 +4,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import org.lbs.Model.User;
 import javafx.stage.Stage;
-import org.lbs.dao.UserDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -13,7 +12,7 @@ import java.io.IOException;
 public class RegisterController {
     private Stage stage;
     private User user;
-    private UserDAO userDAO;
+
 
     @FXML private Button backBtn;
 

@@ -1,7 +1,7 @@
-package org.lbs.dao;
+package org.lbs.Database;
 
 public class BookDatabase {
-    public final static String URL = "jdbc:sqlite:lbdb.db";
+    public final static String URL = "jdbc:sqlite:lb.db";
 
     public static void initialiseBooks() {
         String createBookDatabase = "CREATE TABLE IF NOT EXISTS Books ("
