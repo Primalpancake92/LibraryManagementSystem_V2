@@ -22,12 +22,14 @@
     -fx-background-radius: 30px;
     -fx-padding: 4px 10px 4px 10px;
     -fx-max-width: 500px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
 
 .input-field:focused {
     -fx-border-width: 1px;
     -fx-border-color: #F07039;
-    -fx-effect: innershadow(gaussian, #F07039, 8, 0.2, 0, 0);
+    -fx-faint-focus-color: transparent;
 }
 
 .btn-container {
@@ -93,19 +95,22 @@
     -fx-background-radius: 30px;
     -fx-padding: 4px 10px 4px 10px;
     -fx-border-width: 1px;
-    -fx-border-color: transparent;
+    -fx-background-color: rgba(235, 233, 233, 0.74);
+    -fx-border-color: #a6a6a6;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
 
 .first-name:hover, .last-name:hover, .email-tf:hover, .password-tf:hover, .age-tf:hover {
     -fx-border-width: 1px;
     -fx-border-color: #F07039;
-    -fx-effect: innershadow(gaussian, #F07039, 8, 0.2, 0, 0);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
 
 .first-name:focused, .last-name:focused, .email-tf:focused, .password-tf:focused, .age-tf:focused {
     -fx-border-width: 1px;
     -fx-border-color: #F07039;
-    -fx-effect: innershadow(gaussian, #F07039, 8, 0.2, 0, 0);
 }
 
 .back-btn {
@@ -120,4 +125,18 @@
 .back-btn:hover {
     -fx-border-color: #F07039;
     -fx-border-width: 1px;
+}
+
+.box {
+    -fx-alignment: center;
+    -fx-font-family: "Google Sans Flex";
+    -fx-max-width: 400px;
+    -fx-min-height: 600px;
+    -fx-padding: 5px 20px 5px 20px;
+    -fx-border-width: 1px;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-border-color: #F07039;
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-effect: dropShadow(gaussian, rgba(128, 128, 128, 0.34), 10, 0.1, 10, 10);
 }

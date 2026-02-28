@@ -13,57 +13,71 @@
       fx:controller="org.lbs.Controller.RegisterController"
       prefHeight="400.0" prefWidth="600.0"
       alignment="CENTER">
-    <Label text="Registration" styleClass="register-title"/>
-    <Label text="Please fill in all details." styleClass="register-info"/>
-    <VBox alignment="CENTER" styleClass="login-fields">
-        <HBox alignment="CENTER_LEFT">
-            <VBox>
-                <Label text="First name:"/>
-                <TextField styleClass="first-name"/>
-                <HBox.margin>
-                    <Insets top="10" right="10"/>
-                </HBox.margin>
-            </VBox>
-            <VBox>
-                <Label text="Last name:"/>
-                <TextField styleClass="last-name"/>
-                <HBox.margin>
-                    <Insets top="10"/>
-                </HBox.margin>
-            </VBox>
-        </HBox>
-        <VBox alignment="BASELINE_LEFT">
-            <Label text="Email:"/>
-            <TextField styleClass="email-tf"/>
-
-            <Label text="Password:">
-                <VBox.margin>
-                    <Insets top="10"/>
-                </VBox.margin>
-            </Label>
-            <PasswordField styleClass="password-tf"/>
-
-            <Label text="Age:">
-                <VBox.margin>
-                    <Insets top="10"/>
-                </VBox.margin>
-            </Label>
-            <TextField styleClass="age-tf"/>
-            <HBox alignment="BASELINE_CENTER">
-                <VBox.margin>
-                    <Insets top="10" right="10"/>
-                </VBox.margin>
-                <Button styleClass="back-btn" text="Back" fx:id="backBtn" onAction="#backToHome"/>
-                <HBox.margin>
-                    <Insets right="5"/>
-                </HBox.margin>
-                <Button styleClass="register-btn" text="Register"/>
+    <VBox styleClass="box">
+        <Label text="Registration" styleClass="register-title"/>
+        <Label text="Please fill in all details." styleClass="register-info"/>
+        <VBox alignment="CENTER" styleClass="login-fields">
+            <HBox alignment="CENTER_LEFT">
+                <VBox>
+                    <Label text="First name:">
+                        <VBox.margin>
+                            <Insets left="5" bottom="5"/>
+                        </VBox.margin>
+                    </Label>
+                    <TextField styleClass="first-name"/>
+                    <HBox.margin>
+                        <Insets top="10" right="10"/>
+                    </HBox.margin>
+                </VBox>
+                <VBox>
+                    <Label text="Last name:">
+                        <VBox.margin>
+                            <Insets left="5" bottom="5"/>
+                        </VBox.margin>
+                    </Label>
+                    <TextField styleClass="last-name"/>
+                    <HBox.margin>
+                        <Insets top="10"/>
+                    </HBox.margin>
+                </VBox>
             </HBox>
+            <VBox alignment="BASELINE_LEFT">
+                <Label text="Email:">
+                    <VBox.margin>
+                            <Insets left="5"/>
+                    </VBox.margin>
+                </Label>
+                <TextField styleClass="email-tf"/>
+                <Label text="Password:">
+                    <VBox.margin>
+                        <Insets left="5" top="10"/>
+                    </VBox.margin>
+                </Label>
+                <PasswordField styleClass="password-tf"/>
+
+                <Label text="Age:">
+                    <VBox.margin>
+                        <Insets left="5" top="10"/>
+                    </VBox.margin>
+                </Label>
+                <TextField styleClass="age-tf"/>
+                <HBox alignment="BASELINE_CENTER">
+                    <Button styleClass="back-btn" text="Back" fx:id="backBtn" onAction="#backToHome">
+                        <HBox.margin>
+                            <Insets top="15" right="5"/>
+                        </HBox.margin>
+                    </Button>
+                    <HBox.margin>
+                        <Insets right="5"/>
+                    </HBox.margin>
+                    <Button styleClass="register-btn" text="Register"/>
+                </HBox>
+            </VBox>
         </VBox>
+        <stylesheets>
+            <URL value="@styles.css"/>
+        </stylesheets>
     </VBox>
-    <stylesheets>
-        <URL value="@styles.css"/>
-    </stylesheets>
 </VBox>
 
 
