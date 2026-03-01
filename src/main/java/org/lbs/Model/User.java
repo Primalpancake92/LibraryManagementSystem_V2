@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 
 public class User {
     private final int id;
-    private final String password; // remember to make this into a property
+    private String password; // remember to make this into a property
     private final String firstName; // remember to make this into a property
     private final String lastName; // remember to make this into a property
     private final int age;
@@ -48,7 +48,7 @@ public class User {
     }
 
     private void setPassword (String password) {
-        password = this.password;
+        this.password = password;
     }
 
     // property setters and getters here
