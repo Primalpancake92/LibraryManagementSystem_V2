@@ -2,11 +2,11 @@ package org.lbs.Database;
 
 import org.lbs.Model.Book;
 import org.lbs.Model.User;
-
 import java.sql.*;
 
 public class UserDatabase {
     protected Connection dbConnection;
+    private User returnedUser;
 
     public void getConnection() {
         try {
@@ -51,16 +51,20 @@ public class UserDatabase {
         Remember to obfuscate the sensitive information from the end user.
         This ensures security of user account storage.
         */
+
+        System.out.println(enteredEmail);
+        System.out.println(enteredPassword);
         String findUser = "SELECT email, password"
                 + "FROM User"
-                + "WHERE email = ? AND password = ?";
+                + "WHERE email = '?' AND password = '?'";
 
-        try (PreparedStatement prepStatement = dbConnection.prepareStatement(findUser)) {
-            prepStatement.setString(1, enteredEmail);
-            prepStatement.setString(2, enteredPassword);
+        System.out.println(dbConnection); //connection is returned
 
-            ResultSet rs = prepStatement.executeQuery();
+        try (var preparedStmt = dbConnection.prepareStatement(findUser)) {
+            preparedStmt.setString(1, enteredEmail);
+            preparedStmt.setString(2, enteredPassword);
 
+            var rs = preparedStmt.executeQuery(findUser);
             String password = rs.getString("password");
             if (rs.next()) {
                 int id = rs.getInt("user_id");
@@ -69,12 +73,12 @@ public class UserDatabase {
                 int age = rs.getInt("age");
                 String email = rs.getString("email");
                 Book bookBorrowed = (Book) rs.getObject("book_borrowed");
-                return new User(id, password, firstName, lastName, age, email, bookBorrowed);
+
+                returnedUser = new User(id, password, firstName, lastName, age, email, bookBorrowed);
             }
         } catch (SQLException e) {
-            System.out.println(e);
             System.out.println("The user " + enteredEmail + " was not found.");
         }
-        return null;
+        return returnedUser;
     }
 }
