@@ -40,11 +40,11 @@ public class LoginController implements Initializable {
     }
 
     public void userReturnLogic(String enteredEmail, String enteredPassword) {
-        System.out.println(userDb.authenticateUser(enteredEmail, enteredPassword));
-        if (userDb.authenticateUser(enteredEmail, enteredPassword) == null) {
+        User loggedUser = userDb.authenticateUser(enteredEmail, enteredPassword);
+
+        if (loggedUser == null) {
             errorField.setText("User was not found.");
         }
-        userDb.authenticateUser(enteredEmail, enteredPassword);
     }
 
     public void registerView () throws NullPointerException {

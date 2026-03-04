@@ -6,7 +6,6 @@ import java.sql.*;
 
 public class UserDatabase {
     protected Connection dbConnection;
-    private User returnedUser;
 
     public void getConnection() {
         try {
@@ -51,22 +50,24 @@ public class UserDatabase {
         Remember to obfuscate the sensitive information from the end user.
         This ensures security of user account storage.
         */
-
         System.out.println(enteredEmail);
         System.out.println(enteredPassword);
-        String findUser = "SELECT email, password"
-                + "FROM User"
-                + "WHERE email = '?' AND password = '?'";
+        String findUser = "SELECT user_id, password, first_name, last_name, age, email, book_borrowed "
+                + "FROM User "
+                + "WHERE email = ? AND password = ?";
 
         System.out.println(dbConnection); //connection is returned
 
-        try (var preparedStmt = dbConnection.prepareStatement(findUser)) {
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:Library.db");
+             var preparedStmt = conn.prepareStatement(findUser)) {
+            System.out.println("HI");
             preparedStmt.setString(1, enteredEmail);
             preparedStmt.setString(2, enteredPassword);
 
-            var rs = preparedStmt.executeQuery(findUser);
-            String password = rs.getString("password");
+            var rs = preparedStmt.executeQuery();
+
             if (rs.next()) {
+                String password = rs.getString("password");
                 int id = rs.getInt("user_id");
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
@@ -74,11 +75,11 @@ public class UserDatabase {
                 String email = rs.getString("email");
                 Book bookBorrowed = (Book) rs.getObject("book_borrowed");
 
-                returnedUser = new User(id, password, firstName, lastName, age, email, bookBorrowed);
+                return new User(id, password, firstName, lastName, age, email, bookBorrowed);
             }
         } catch (SQLException e) {
             System.out.println("The user " + enteredEmail + " was not found.");
         }
-        return returnedUser;
+        return null;
     }
 }
