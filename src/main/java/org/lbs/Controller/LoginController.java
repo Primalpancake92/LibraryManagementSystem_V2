@@ -29,11 +29,20 @@ public class LoginController implements Initializable {
 
     @FXML
     public void userLogin() {
-        String email = String.valueOf(userTf.textProperty().getValue());
-        String password = String.valueOf(passwordTf.textProperty().getValue());
+        String email = userTf.getText().trim();
+        String password = passwordTf.getText().trim();
 
         if (!email.isEmpty() && !password.isEmpty()) {
             userReturnLogic(email, password);
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/lbs/view/accountView.fxml"));
+                Parent accountRoot = loader.load();
+                loginBtn.getScene().setRoot(accountRoot);
+            } catch (NullPointerException e) {
+                System.out.println("User not validated properly");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         } else {
             errorField.setText("You have not typed anything.");
         }
@@ -41,6 +50,7 @@ public class LoginController implements Initializable {
 
     public void userReturnLogic(String enteredEmail, String enteredPassword) {
         User loggedUser = userDb.authenticateUser(enteredEmail, enteredPassword);
+        errorField.setText("What? It is working!!!");
 
         if (loggedUser == null) {
             errorField.setText("User was not found.");

@@ -6,6 +6,7 @@ import java.sql.*;
 
 public class UserDatabase {
     protected Connection dbConnection;
+    private Book bookBorrowed;
 
     public void getConnection() {
         try {
@@ -60,22 +61,21 @@ public class UserDatabase {
 
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:Library.db");
              var preparedStmt = conn.prepareStatement(findUser)) {
-            System.out.println("HI");
             preparedStmt.setString(1, enteredEmail);
             preparedStmt.setString(2, enteredPassword);
 
-            var rs = preparedStmt.executeQuery();
+            ResultSet rs = preparedStmt.executeQuery();
+            System.out.println(rs);
 
-            if (rs.next()) {
-                String password = rs.getString("password");
+            while (rs.next()) {
                 int id = rs.getInt("user_id");
+                String password = rs.getString("password");
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
                 int age = rs.getInt("age");
                 String email = rs.getString("email");
-                Book bookBorrowed = (Book) rs.getObject("book_borrowed");
 
-                return new User(id, password, firstName, lastName, age, email, bookBorrowed);
+                return new User(id, password, firstName, lastName, age, email, null); // returns mapped User
             }
         } catch (SQLException e) {
             System.out.println("The user " + enteredEmail + " was not found.");
