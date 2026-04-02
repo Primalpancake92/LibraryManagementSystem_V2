@@ -10,16 +10,18 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.lbs.Model.User;
-import org.lbs.Database.UserDatabase;
+import org.lbs.Database.Database;
+import org.lbs.Database.UserCrud;
+
+import java.sql.Connection;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController{
     public Label errorField;
     private User model;
     private Stage stage;
-    private final UserDatabase userDb = new UserDatabase();
 
     @FXML private TextField userTf;
     @FXML private PasswordField passwordTf;
@@ -49,7 +51,7 @@ public class LoginController implements Initializable {
     }
 
     public void userReturnLogic(String enteredEmail, String enteredPassword) {
-        User loggedUser = userDb.authenticateUser(enteredEmail, enteredPassword);
+        User loggedUser = UserCrud.authenticateUser(enteredEmail, enteredPassword);
         errorField.setText("What? It is working!!!");
 
         if (loggedUser == null) {
@@ -67,10 +69,5 @@ public class LoginController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        userDb.getConnection();
     }
 }
