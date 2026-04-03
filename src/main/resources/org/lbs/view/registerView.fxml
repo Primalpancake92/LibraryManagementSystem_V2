@@ -24,7 +24,7 @@
                             <Insets left="5" bottom="5"/>
                         </VBox.margin>
                     </Label>
-                    <TextField styleClass="first-name"/>
+                    <TextField styleClass="first-name" fx:id="firstNameTf"/>
                     <HBox.margin>
                         <Insets top="10" right="10"/>
                     </HBox.margin>
@@ -35,7 +35,7 @@
                             <Insets left="5" bottom="5"/>
                         </VBox.margin>
                     </Label>
-                    <TextField styleClass="last-name"/>
+                    <TextField styleClass="last-name" fx:id="lastNameTf"/>
                     <HBox.margin>
                         <Insets top="10"/>
                     </HBox.margin>
@@ -47,20 +47,19 @@
                             <Insets left="5"/>
                     </VBox.margin>
                 </Label>
-                <TextField styleClass="email-tf"/>
+                <TextField styleClass="email-tf" fx:id="emailTf"/>
                 <Label text="Password:">
                     <VBox.margin>
                         <Insets left="5" top="10"/>
                     </VBox.margin>
                 </Label>
-                <PasswordField styleClass="password-tf"/>
-
+                <PasswordField styleClass="password-tf" fx:id="passwordTf"/>
                 <Label text="Age:">
                     <VBox.margin>
                         <Insets left="5" top="10"/>
                     </VBox.margin>
                 </Label>
-                <TextField styleClass="age-tf"/>
+                <TextField styleClass="age-tf" fx:id="ageTf"/>
                 <HBox alignment="BASELINE_CENTER">
                     <Button styleClass="back-btn" text="Back" fx:id="backBtn" onAction="#backToHome">
                         <HBox.margin>
@@ -70,7 +69,11 @@
                     <HBox.margin>
                         <Insets right="5"/>
                     </HBox.margin>
-                    <Button styleClass="register-btn" text="Register"/>
+                    <HBox.margin>
+                        <Insets bottom="5"/>
+                    </HBox.margin>
+                    <Label/>
+                    <Button styleClass="register-btn" text="Register" fx:id="registerBtn" onAction="#registerUser"/>
                 </HBox>
             </VBox>
         </VBox>

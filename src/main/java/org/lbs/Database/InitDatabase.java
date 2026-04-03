@@ -10,7 +10,7 @@ public class InitDatabase {
                 + "password TEXT NOT NULL,"
                 + "first_name TEXT NOT NULL,"
                 + "last_name TEXT NOT NULL,"
-                + "age INTEGER NOT NULL,"
+                + "age INTEGER,"
                 + "email STRING NOT NULL,"
                 + "book_borrowed STRING )";
 

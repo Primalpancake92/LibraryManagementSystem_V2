@@ -1,14 +1,32 @@
 package org.lbs.Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import org.lbs.Model.User;
 
 public class UserCrud {
     final protected static Database dbInstance = Database.getInstance();
+
+    public static void registerUser(String firstName, String lastName, String email,
+                                    String password, int age) {
+        String registerUser = "INSERT INTO User (" +
+                "first_name, last_name, email, password, age)" +
+                "VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:Library.db")) {
+            var prepStmt = conn.prepareStatement(registerUser);
+
+            prepStmt.setString(1, firstName);
+            prepStmt.setString(2, lastName);
+            prepStmt.setString(3, email);
+            prepStmt.setString(4, password);
+            prepStmt.setInt(5, age);
+
+            prepStmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e);
+        }
+    }
 
     public static User authenticateUser (String enteredEmail, String enteredPassword) {
         /*
@@ -24,7 +42,7 @@ public class UserCrud {
         System.out.println(dbInstance); //connection is returned
 
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:Library.db");
-             var preparedStmt = conn.prepareStatement(findUser)) {
+            var preparedStmt = conn.prepareStatement(findUser)) {
             preparedStmt.setString(1, enteredEmail);
             preparedStmt.setString(2, enteredPassword);
 

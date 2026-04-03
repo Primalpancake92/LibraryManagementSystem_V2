@@ -140,3 +140,21 @@
     -fx-background-color: rgb(255, 255, 255);
     -fx-effect: dropShadow(gaussian, rgba(128, 128, 128, 0.34), 10, 0.1, 10, 10);
 }
+
+.view-container {
+    -fx-alignment: center;
+    -fx-min-height: 500px;
+    -fx-min-width: 1200px;
+    -fx-max-width: -1;
+    -fx-max-height: -1;
+    -fx-background-color: #F07039;
+}
+
+.sidebar{
+    -fx-alignmnt: center_left;
+    -fx-background-color: white;
+    -fx-min-height: 500px;
+    -fx-min-width: 250px;
+    -fx-max-height: infinity;
+    -fx-max-width: infinity;
+}
