@@ -61,7 +61,7 @@
                 </Label>
                 <TextField styleClass="age-tf" fx:id="ageTf"/>
                 <HBox alignment="BASELINE_CENTER">
-                    <Button styleClass="back-btn" text="Back" fx:id="backBtn" onAction="#backToHome">
+                    <Button styleClass="back-btn" text="Back" fx:id="backBtn" onAction="#backBtnNav">
                         <HBox.margin>
                             <Insets top="15" right="5"/>
                         </HBox.margin>

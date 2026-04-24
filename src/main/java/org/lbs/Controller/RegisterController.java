@@ -4,7 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.lbs.Database.UserCrud;
+import org.lbs.DAL.UserCrud;
 import org.lbs.Model.User;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
@@ -24,17 +24,20 @@ public class RegisterController {
     @FXML private TextField emailTf;
     @FXML private PasswordField passwordTf;
 
-    public void backToHome() throws NullPointerException {
+    public void backHome(Button someBtn) throws NullPointerException {
         try {
             FXMLLoader fxml = new FXMLLoader(getClass().getResource("/org/lbs/view/loginView.fxml"));
             Parent parent = fxml.load();
-            backBtn.getScene().setRoot(parent);
-            System.out.println("Scene successfully set.");
-        } catch (NullPointerException e) {
-            System.out.println("The page that you are going to does not exist.");
+            someBtn.getScene().setRoot(parent);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } catch (IllegalStateException e) {
+            System.out.println("wrong place");
         }
+    }
+
+    public void backBtnNav() throws NullPointerException {
+        backHome(backBtn);
     }
 
     public void registerUser() throws NullPointerException {
@@ -48,6 +51,7 @@ public class RegisterController {
         } else {
             UserCrud.registerUser(firstNameTf.getText(), lastNameTf.getText(),
                     emailTf.getText(), passwordTf.getText(), 0);
+            backHome(registerBtn);
         }
 
         firstNameTf.clear();

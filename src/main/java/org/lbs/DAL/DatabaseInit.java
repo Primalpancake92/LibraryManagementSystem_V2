@@ -1,8 +1,8 @@
-package org.lbs.Database;
+package org.lbs.DAL;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class InitDatabase {
+public class DatabaseInit {
     public static void initializeDatabase(Connection conn) {
 
         String createUsersTable = "CREATE TABLE IF NOT EXISTS User ("

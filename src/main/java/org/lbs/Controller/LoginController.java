@@ -1,7 +1,6 @@
 package org.lbs.Controller;
 
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,13 +9,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.lbs.Model.User;
-import org.lbs.Database.Database;
-import org.lbs.Database.UserCrud;
+import org.lbs.DAL.UserCrud;
+import org.lbs.Session.UserSession;
 
-import java.sql.Connection;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class LoginController{
     public Label errorField;
@@ -52,7 +48,7 @@ public class LoginController{
 
     public void userReturnLogic(String enteredEmail, String enteredPassword) {
         User loggedUser = UserCrud.authenticateUser(enteredEmail, enteredPassword);
-        errorField.setText("What? It is working!!!");
+        UserSession.setLoggedInUser(loggedUser);
 
         if (loggedUser == null) {
             errorField.setText("User was not found.");

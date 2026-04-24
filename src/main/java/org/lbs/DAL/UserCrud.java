@@ -1,11 +1,14 @@
-package org.lbs.Database;
+package org.lbs.DAL;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.*;
 
 import org.lbs.Model.User;
 
 public class UserCrud {
-    final protected static Database dbInstance = Database.getInstance();
+    private static Path dbPath = Paths.get("db", "Library.db");
+    private static String URL = "jdbc:sqlite:" + dbPath.toString();
 
     public static void registerUser(String firstName, String lastName, String email,
                                     String password, int age) {
@@ -13,7 +16,7 @@ public class UserCrud {
                 "first_name, last_name, email, password, age)" +
                 "VALUES (?, ?, ?, ?, ?)";
 
-        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:Library.db")) {
+        try (Connection conn = DriverManager.getConnection(URL)) {
             var prepStmt = conn.prepareStatement(registerUser);
 
             prepStmt.setString(1, firstName);
@@ -37,9 +40,7 @@ public class UserCrud {
         System.out.println(enteredPassword);
         String findUser = "SELECT user_id, password, first_name, last_name, age, email, book_borrowed "
                 + "FROM User "
-                + "WHERE email = ? AND password = ?";
-
-        System.out.println(dbInstance); //connection is returned
+                + "WHERE email = ? AND password = ?";//connection is returned
 
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:Library.db");
             var preparedStmt = conn.prepareStatement(findUser)) {

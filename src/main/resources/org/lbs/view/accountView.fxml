@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -10,23 +8,63 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.lbs.Controller.AccountController"
-            prefHeight="400.0" prefWidth="600.0">
-    <HBox styleClass="view-container">
-        <VBox styleClass="sidebar">
-            <Label styleClass="account-name"/>
-        </VBox>
-    </HBox>
-    <HBox>
-        <VBox styleClass="account-view">
-            <VBox styleClass="account-dets">
+            prefHeight="500.0" prefWidth="900.0"
+            styleClass="root">
 
-            </VBox>
-            <VBox styleClass="borrow-history">
-                <Label text="Borrowed books"/>
+    <HBox spacing="20"
+          AnchorPane.topAnchor="20"
+          AnchorPane.bottomAnchor="20"
+          AnchorPane.leftAnchor="20"
+          AnchorPane.rightAnchor="20">
+
+        <!-- Sidebar -->
+        <VBox styleClass="sidebar" prefWidth="220" spacing="20" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="30" left="10" right="10" bottom="10"/>
+            </padding>
+
+            <Label text="Library" styleClass="logo" />
+
+            <VBox spacing="15" alignment="TOP_LEFT">
+                <Label text="Dashboard" styleClass="nav-item" />
+                <Label text="Account" styleClass="nav-item active" />
+                <Label text="Books" styleClass="nav-item" />
+                <Label text="Settings" styleClass="nav-item" />
             </VBox>
         </VBox>
-    </HBox>
 
+        <!-- Main Content -->
+        <VBox styleClass="main-content" spacing="20" HBox.hgrow="ALWAYS">
+            <padding>
+                <Insets top="20" left="30" right="30" bottom="20"/>
+            </padding>
+
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="My Account" styleClass="title" />
+            </HBox>
+
+            <!-- Account Details Card -->
+            <HBox spacing="20">
+                <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
+                    <Label text="Account Details" styleClass="card-title" />
+                    <Separator />
+                    <Label text="Name: John Doe" fx:id="nameLbl"/>
+                    <Label text="Email: johndoe@email.com" fx:id="emailLbl"/>
+                    <Label text="Membership: Student" fx:id="addressLbl"/>
+                </VBox>
+
+                <!-- Borrow History Card -->
+                <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
+                    <Label text="Borrow History" styleClass="card-title" />
+                    <Separator />
+                    <ListView prefHeight="200" />
+                </VBox>
+            </HBox>
+
+        </VBox>
+
+    </HBox>
     <stylesheets>
         <URL value="@styles.css"/>
     </stylesheets>
