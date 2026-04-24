@@ -23,7 +23,7 @@
                 <Insets top="30" left="10" right="10" bottom="10"/>
             </padding>
 
-            <Label text="Library" styleClass="logo" />
+            <Label text="OpenShelf" styleClass="logo" />
 
             <VBox spacing="15" alignment="TOP_LEFT">
                 <Label text="Dashboard" styleClass="nav-item" />
@@ -49,9 +49,9 @@
                 <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
                     <Label text="Account Details" styleClass="card-title" />
                     <Separator />
-                    <Label text="Name: John Doe" fx:id="nameLbl"/>
-                    <Label text="Email: johndoe@email.com" fx:id="emailLbl"/>
-                    <Label text="Membership: Student" fx:id="addressLbl"/>
+                    <Label fx:id="nameLbl"/>
+                    <Label fx:id="emailLbl"/>
+                    <Label fx:id="addressLbl"/>
                 </VBox>
 
                 <!-- Borrow History Card -->

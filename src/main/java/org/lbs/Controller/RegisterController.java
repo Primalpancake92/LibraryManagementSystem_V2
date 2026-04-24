@@ -4,7 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.lbs.DAL.UserCrud;
+import org.lbs.Database.DAL.UserCrud;
 import org.lbs.Model.User;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;

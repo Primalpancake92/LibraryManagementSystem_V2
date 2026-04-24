@@ -1,4 +1,4 @@
-package org.lbs.DAL;
+package org.lbs.Database.DAL;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -7,7 +7,7 @@ import java.sql.*;
 import org.lbs.Model.User;
 
 public class UserCrud {
-    private static Path dbPath = Paths.get("db", "Library.db");
+    private static Path dbPath = Paths.get("Library.db");
     private static String URL = "jdbc:sqlite:" + dbPath.toString();
 
     public static void registerUser(String firstName, String lastName, String email,
@@ -36,19 +36,16 @@ public class UserCrud {
         Remember to obfuscate the sensitive information from the end user.
         This ensures security of user account storage.
         */
-        System.out.println(enteredEmail);
-        System.out.println(enteredPassword);
-        String findUser = "SELECT user_id, password, first_name, last_name, age, email, book_borrowed "
+        String findUser = "SELECT user_id, password, first_name, last_name, age, email "
                 + "FROM User "
-                + "WHERE email = ? AND password = ?";//connection is returned
+                + "WHERE email = ? AND password = ?";
 
-        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:Library.db");
+        try (Connection conn = DriverManager.getConnection(URL);
             var preparedStmt = conn.prepareStatement(findUser)) {
             preparedStmt.setString(1, enteredEmail);
             preparedStmt.setString(2, enteredPassword);
 
             ResultSet rs = preparedStmt.executeQuery();
-            System.out.println(rs);
 
             while (rs.next()) {
                 int id = rs.getInt("user_id");
@@ -58,7 +55,9 @@ public class UserCrud {
                 int age = rs.getInt("age");
                 String email = rs.getString("email");
 
-                return new User(id, password, firstName, lastName, age, email, null); // returns mapped User
+                User user = new User(id, password, firstName, lastName, age, email);
+                System.out.println(user + " " + user.firstNameProperty());
+                return user;// returns mapped User
             }
         } catch (SQLException e) {
             System.out.println("The user " + enteredEmail + " was not found.");

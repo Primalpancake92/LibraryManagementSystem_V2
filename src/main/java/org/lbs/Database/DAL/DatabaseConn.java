@@ -1,4 +1,4 @@
-package org.lbs.DAL;
+package org.lbs.Database.DAL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;

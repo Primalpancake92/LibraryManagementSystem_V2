@@ -6,6 +6,9 @@ public class UserSession {
     private static User loggedInUser;
 
     public static void setLoggedInUser(User newUser) {
+        if (newUser == null) {
+            throw new IllegalArgumentException("Cannot set null user as active session");
+        }
         loggedInUser = newUser;
     }
 
@@ -14,6 +17,6 @@ public class UserSession {
     }
 
     public static void userLogout() {
-        setLoggedInUser(null);
+        loggedInUser = null;
     }
 }

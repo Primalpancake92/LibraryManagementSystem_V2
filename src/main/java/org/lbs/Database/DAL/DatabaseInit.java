@@ -1,4 +1,4 @@
-package org.lbs.DAL;
+package org.lbs.Database.DAL;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -11,8 +11,7 @@ public class DatabaseInit {
                 + "first_name TEXT NOT NULL,"
                 + "last_name TEXT NOT NULL,"
                 + "age INTEGER,"
-                + "email STRING NOT NULL,"
-                + "book_borrowed STRING )";
+                + "email STRING TEXT UNIQUE)";
 
         String createBooksTable = "CREATE TABLE IF NOT EXISTS Books ("
                 + "Book_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"

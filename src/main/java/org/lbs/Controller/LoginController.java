@@ -9,7 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.lbs.Model.User;
-import org.lbs.DAL.UserCrud;
+import org.lbs.Database.DAL.UserCrud;
 import org.lbs.Session.UserSession;
 
 import java.io.IOException;
@@ -25,33 +25,30 @@ public class LoginController{
     @FXML private Button registerBtn;
     @FXML private Label errorLabel;
 
-    @FXML
     public void userLogin() {
         String email = userTf.getText().trim();
         String password = passwordTf.getText().trim();
 
-        if (!email.isEmpty() && !password.isEmpty()) {
-            userReturnLogic(email, password);
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/lbs/view/accountView.fxml"));
-                Parent accountRoot = loader.load();
-                loginBtn.getScene().setRoot(accountRoot);
-            } catch (NullPointerException e) {
-                System.out.println("User not validated properly");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        } else {
+        if (email.isEmpty() || password.isEmpty()) {
             errorField.setText("You have not typed anything.");
+            return;
         }
-    }
 
-    public void userReturnLogic(String enteredEmail, String enteredPassword) {
-        User loggedUser = UserCrud.authenticateUser(enteredEmail, enteredPassword);
-        UserSession.setLoggedInUser(loggedUser);
+        User user = UserCrud.authenticateUser(email, password);
 
-        if (loggedUser == null) {
-            errorField.setText("User was not found.");
+        if (user == null) {
+            errorField.setText("Invalid email or password.");
+            return;
+        }
+
+        UserSession.setLoggedInUser(user);
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/lbs/view/accountView.fxml"));
+            Parent accountRoot = loader.load();
+            loginBtn.getScene().setRoot(accountRoot);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

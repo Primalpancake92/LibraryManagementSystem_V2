@@ -11,17 +11,15 @@ public class User {
     private final StringProperty firstName; // remember to make this into a property
     private final StringProperty lastName; // remember to make this into a property
     private final int age;
-    private final String email;
-    private final ObjectProperty<Book> book;
+    private final StringProperty email;
 
-    public User(int id, String password, String firstName, String lastName, int age, String email, Book book) {
+    public User(int id, String password, String firstName, String lastName, int age, String email) {
         this.id = id;
         this.password = password;
-        this.firstName = new SimpleStringProperty();
-        this.lastName = new SimpleStringProperty();
+        this.firstName = new SimpleStringProperty(firstName);
+        this.lastName = new SimpleStringProperty(lastName);
         this.age = age;
-        this.email = email;
-        this.book = new SimpleObjectProperty<>();
+        this.email = new SimpleStringProperty(email);
     }
 
     private int getId() {
@@ -36,8 +34,8 @@ public class User {
         return firstName.get();
     }
 
-    public final void setFirstNameProperty(String newName) {
-        firstName.set(newName);
+    public final void setFirstNameProperty(String newFirstName) {
+        firstName.set(newFirstName);
     }
 
     public final StringProperty firstNameProperty() {
@@ -47,28 +45,32 @@ public class User {
     public final String getLastName() {
         return lastName.get();
     }
+
+    public final void setLastNameProperty(String newLastName) {
+        lastName.set(newLastName);
+    }
+
+    public final StringProperty getLastNameProperty() {
+        return lastName;
+    }
+
+    public final String getEmail() {
+        return email.get();
+    }
+
+    public final void setEmailProperty(String newEmail) {
+        email.set(newEmail);
+    }
+
+    public final StringProperty getEmailProperty() {
+        return email;
+    }
+
     private int getAge() {
         return this.age;
     }
 
-    private String returnEmail() {
-        return this.email;
-    }
-
     private void setPassword (String password) {
         this.password = password;
-    }
-
-    // property setters and getters here
-    public Book getBook() {
-        return this.book.get();
-    }
-
-    public void setBook(Book borrowedBook) {
-        this.book.set(borrowedBook);
-    }
-
-    public ObjectProperty<Book> BookProperty() {
-        return this.book;
     }
 }

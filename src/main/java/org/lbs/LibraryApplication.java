@@ -4,12 +4,11 @@ import javafx.application.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.stage.*;
-import org.lbs.DAL.DatabaseConn;
-import org.lbs.DAL.DatabaseInit;
+import org.lbs.Database.DAL.DatabaseConn;
+import org.lbs.Database.DAL.DatabaseInit;
+import org.lbs.Database.Test.InsertUsers;
 
-import javax.xml.crypto.Data;
 import java.sql.Connection;
-import java.sql.DriverManager;
 
 
 public class LibraryApplication extends Application{
@@ -22,6 +21,7 @@ public class LibraryApplication extends Application{
         try {
             Connection conn = DatabaseConn.getConnection();// This creates the database file, if it is not there.
             DatabaseInit.initializeDatabase(conn);
+            InsertUsers.insertUsers();
             Parent root = FXMLLoader.load(getClass().getResource("/org/lbs/view/loginView.fxml"));
             primaryStage.setTitle("OpenShelf");
             primaryStage.setScene(new Scene(root, 1366, 768));
