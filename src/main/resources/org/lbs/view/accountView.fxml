@@ -3,12 +3,14 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
+<?import javafx.scene.text.Text?>
 <?import java.net.URL?>
+
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.lbs.Controller.AccountController"
-            prefHeight="500.0" prefWidth="900.0"
+            prefHeight="500.0"
+            prefWidth="900.0"
             styleClass="root">
 
     <HBox spacing="20"
@@ -18,54 +20,95 @@
           AnchorPane.rightAnchor="20">
 
         <!-- Sidebar -->
-        <VBox styleClass="sidebar" prefWidth="220" spacing="20" alignment="TOP_CENTER">
+        <VBox prefWidth="220"
+              spacing="20"
+              alignment="TOP_CENTER"
+              styleClass="sidebar">
+
             <padding>
-                <Insets top="30" left="10" right="10" bottom="10"/>
+                <Insets top="30" right="10" bottom="10" left="10"/>
             </padding>
 
-            <Label text="OpenShelf" styleClass="logo" />
+            <Label text="OpenShelf" styleClass="logo"/>
 
             <VBox spacing="15" alignment="TOP_LEFT">
-                <Label text="Dashboard" styleClass="nav-item" />
-                <Label text="Account" styleClass="nav-item active" />
-                <Label text="Books" styleClass="nav-item" />
-                <Label text="Settings" styleClass="nav-item" />
+                <Label text="Dashboard" styleClass="nav-item"/>
+                <Label text="Account" styleClass="nav-item active"/>
+                <Label text="Books" styleClass="nav-item"/>
+                <Label text="Settings" styleClass="nav-item"/>
             </VBox>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <Button text="Logout"
+                    fx:id="logoutBtn"
+                    onAction="#logout"
+                    maxWidth="75"/>
         </VBox>
 
         <!-- Main Content -->
-        <VBox styleClass="main-content" spacing="20" HBox.hgrow="ALWAYS">
+        <VBox spacing="20"
+              HBox.hgrow="ALWAYS"
+              styleClass="main-content">
+
             <padding>
-                <Insets top="20" left="30" right="30" bottom="20"/>
+                <Insets top="20" right="30" bottom="20" left="30"/>
             </padding>
 
             <!-- Header -->
-            <HBox alignment="CENTER_LEFT" spacing="10">
-                <Label text="My Account" styleClass="title" />
+            <HBox alignment="CENTER_LEFT">
+                <Label text="My Account" styleClass="title"/>
             </HBox>
 
-            <!-- Account Details Card -->
-            <HBox spacing="20">
-                <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
-                    <Label text="Account Details" styleClass="card-title" />
-                    <Separator />
-                    <Label fx:id="nameLbl"/>
-                    <Label fx:id="emailLbl"/>
-                    <Label fx:id="addressLbl"/>
+            <!-- Cards Section -->
+            <HBox spacing="20" HBox.hgrow="ALWAYS">
+
+                <!-- Account Details Card -->
+                <VBox spacing="12"
+                      styleClass="card"
+                      minWidth="500"
+                      maxWidth="Infinity"
+                      HBox.hgrow="ALWAYS">
+
+                    <Label text="Account Details" styleClass="card-title"/>
+                    <Separator/>
+
+                    <Text wrappingWidth="500" textAlignment="LEFT" style="-fx-font-size: 11pt;">
+                        Here is a quick view of all your important account details.
+                        If you would like to update your information, you can do so
+                        through the settings page.
+                    </Text>
+
+                    <Separator/>
+
+                    <Label fx:id="nameLbl" text="Full Name: -"/>
+                    <Label fx:id="emailLbl" text="Email: -"/>
+                    <Label fx:id="phoneLbl" text="Phone: -"/>
+                    <Label fx:id="addressLbl" text="Address: -"/>
                 </VBox>
 
                 <!-- Borrow History Card -->
-                <VBox styleClass="card" spacing="10" HBox.hgrow="ALWAYS">
-                    <Label text="Borrow History" styleClass="card-title" />
-                    <Separator />
-                    <ListView prefHeight="200" />
+                <VBox spacing="12"
+                      styleClass="card"
+                      minWidth="500"
+                      maxWidth="Infinity"
+                      HBox.hgrow="ALWAYS">
+
+                    <Label text="Borrow History" styleClass="card-title"/>
+                    <Separator/>
+
+                    <ListView prefHeight="300"
+                              VBox.vgrow="ALWAYS"/>
                 </VBox>
+
             </HBox>
 
         </VBox>
 
     </HBox>
+
     <stylesheets>
         <URL value="@styles.css"/>
     </stylesheets>
+
 </AnchorPane>

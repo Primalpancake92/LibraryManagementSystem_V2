@@ -36,7 +36,8 @@ public class UserCrud {
         Remember to obfuscate the sensitive information from the end user.
         This ensures security of user account storage.
         */
-        String findUser = "SELECT user_id, password, first_name, last_name, age, email "
+        String findUser = "SELECT user_id, first_name, last_name, age, email, password, residential_address, "
+                + "phone_number "
                 + "FROM User "
                 + "WHERE email = ? AND password = ?";
 
@@ -49,13 +50,16 @@ public class UserCrud {
 
             while (rs.next()) {
                 int id = rs.getInt("user_id");
-                String password = rs.getString("password");
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
                 int age = rs.getInt("age");
                 String email = rs.getString("email");
+                String password = rs.getString("password");
+                String residentialAddress = rs.getString("residential_address");
+                String phoneNumber = rs.getString("phone_number");
 
-                User user = new User(id, password, firstName, lastName, age, email);
+                User user = new User(id, firstName, lastName, age, email, password,
+                        residentialAddress, phoneNumber);
                 System.out.println(user + " " + user.firstNameProperty());
                 return user;// returns mapped User
             }

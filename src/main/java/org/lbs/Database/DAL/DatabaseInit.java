@@ -7,11 +7,13 @@ public class DatabaseInit {
 
         String createUsersTable = "CREATE TABLE IF NOT EXISTS User ("
                 + "user_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "password TEXT NOT NULL,"
                 + "first_name TEXT NOT NULL,"
                 + "last_name TEXT NOT NULL,"
                 + "age INTEGER,"
-                + "email STRING TEXT UNIQUE)";
+                + "email TEXT UNIQUE,"
+                + "password TEXT NOT NULL,"
+                + "residential_address TEXT NOT NULL,"
+                + "phone_number TEXT NOT NULL)";
 
         String createBooksTable = "CREATE TABLE IF NOT EXISTS Books ("
                 + "Book_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
@@ -25,8 +27,7 @@ public class DatabaseInit {
             System.out.println("Database was successfully initialized.");
             conn.close();
         } catch (SQLException e) {
-            System.out.println(e + " is the exception.");
-            System.out.println("There were no database found.");
+            e.printStackTrace();
         }
     }
 }
