@@ -1,10 +1,11 @@
+/* Regular Weight */
 @font-face {
-    font-family: "Google sans flex";
-    src: url("/fonts/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.ttf");
+    font-family: "Product Sans";
+    src: url("/fonts/ProductSans-Regular.ttf");
 }
 
 .root {
-    -fx-font-family: "Google sans flex";
+    -fx-font-family: "Product Sans";
 }
 
 .heading {
@@ -53,6 +54,23 @@
     -fx-text-fill: white;
     -fx-border-width: 1px;
     -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+
+.logout-btn {
+    -fx-background-color: #F07039;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+    -fx-border-width: 1px;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #F07039;
+}
+
+.logout-btn:hover {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #F07039;
+    -fx-border-width: 1px;
+    -fx-border-color: #F07039;
     -fx-cursor: hand;
 }
 
@@ -131,7 +149,6 @@
 
 .box {
     -fx-alignment: center;
-    -fx-font-family: "Google Sans Flex";
     -fx-max-width: 400px;
     -fx-min-height: 600px;
     -fx-padding: 5px 20px 5px 20px;

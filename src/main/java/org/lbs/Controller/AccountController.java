@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.text.FontSmoothingType;
 import org.lbs.Model.User;
 import org.lbs.Session.UserSession;
 

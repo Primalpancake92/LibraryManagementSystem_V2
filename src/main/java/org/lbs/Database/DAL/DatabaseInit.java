@@ -18,7 +18,8 @@ public class DatabaseInit {
         String createBooksTable = "CREATE TABLE IF NOT EXISTS Books ("
                 + "Book_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
                 + "Title TEXT NOT NULL,"
-                + "Author TEXT NOT NULL)";
+                + "Author TEXT NOT NULL,"
+                + "Genre TEXT NOT NULL )";
 
         try {
             var createStmt = conn.createStatement();

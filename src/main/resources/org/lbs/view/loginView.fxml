@@ -15,7 +15,7 @@
     <Label styleClass="heading">
         Welcome to OpenShelf
     </Label>
-    <Label text="Please enter your login details."/>
+    <Label text="Please enter your login details." style="-fx-font-smoothing-type: grey"/>
     <VBox styleClass="login-box">
         <Label text="Email:">
             <VBox.margin>

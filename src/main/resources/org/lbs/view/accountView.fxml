@@ -43,6 +43,7 @@
             <Button text="Logout"
                     fx:id="logoutBtn"
                     onAction="#logout"
+                    styleClass="logout-btn"
                     maxWidth="75"/>
         </VBox>
 
@@ -110,5 +111,4 @@
     <stylesheets>
         <URL value="@styles.css"/>
     </stylesheets>
-
 </AnchorPane>
