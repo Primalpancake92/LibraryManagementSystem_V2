@@ -110,7 +110,7 @@
     -fx-min-width: 250px;
 }
 
-.first-name, .last-name, .email-tf, .password-tf, .age-tf{
+.first-name, .last-name, .email-tf, .password-tf, .age-tf, .address-tf, .phone-tf{
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
     -fx-padding: 4px 10px 4px 10px;
@@ -121,14 +121,16 @@
     -fx-faint-focus-color: transparent;
 }
 
-.first-name:hover, .last-name:hover, .email-tf:hover, .password-tf:hover, .age-tf:hover {
+.first-name:hover, .last-name:hover, .email-tf:hover, .password-tf:hover, .age-tf:hover, .address-tf:hover,
+.phone-tf:hover {
     -fx-border-width: 1px;
     -fx-border-color: #F07039;
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
 }
 
-.first-name:focused, .last-name:focused, .email-tf:focused, .password-tf:focused, .age-tf:focused {
+.first-name:focused, .last-name:focused, .email-tf:focused, .password-tf:focused, .age-tf:focused, .address-tf:focused,
+.phone-tf:focused{
     -fx-border-width: 1px;
     -fx-border-color: #F07039;
 }
@@ -145,6 +147,10 @@
 .back-btn:hover {
     -fx-border-color: #F07039;
     -fx-border-width: 1px;
+}
+
+.register-error {
+    -fx-fill: red;
 }
 
 .box {

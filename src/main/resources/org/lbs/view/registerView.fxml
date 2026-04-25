@@ -5,6 +5,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 
+<?import javafx.scene.text.Text?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.lbs.Controller.RegisterController"
@@ -57,10 +58,28 @@
                     </VBox.margin>
                 </Label>
                 <TextField styleClass="age-tf" fx:id="ageTf"/>
+                <Label text="Residential Address:">
+                    <VBox.margin>
+                        <Insets left="5" top="10"/>
+                    </VBox.margin>
+                </Label>
+                <TextField styleClass="address-tf" fx:id="addressTf"/>
+                <Label text="Phone number:">
+                    <VBox.margin>
+                        <Insets left="5" top="10"/>
+                    </VBox.margin>
+                </Label>
+                <TextField styleClass="phone-tf" fx:id="phoneTf"/>
+
+                <Text styleClass="register-error" fx:id="regErrorText">
+                    <VBox.margin>
+                        <Insets left="5" top="10" bottom="5"/>
+                    </VBox.margin>
+                </Text>
                 <HBox alignment="BASELINE_CENTER">
                     <Button styleClass="back-btn" text="Back" fx:id="backBtn" onAction="#backBtnNav">
                         <HBox.margin>
-                            <Insets top="15" right="5"/>
+                            <Insets top="5" right="5"/>
                         </HBox.margin>
                     </Button>
                     <HBox.margin>
@@ -75,7 +94,6 @@
             </VBox>
         </VBox>
     </VBox>
-
     <stylesheets>
         <URL value="@styles.css"/>
     </stylesheets>

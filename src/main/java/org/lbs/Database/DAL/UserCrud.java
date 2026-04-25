@@ -7,14 +7,14 @@ import java.sql.*;
 import org.lbs.Model.User;
 
 public class UserCrud {
-    private static Path dbPath = Paths.get("Library.db");
-    private static String URL = "jdbc:sqlite:" + dbPath.toString();
+    private static final Path dbPath = Paths.get("Library.db");
+    private static final String URL = "jdbc:sqlite:" + dbPath.toString();
 
     public static void registerUser(String firstName, String lastName, String email,
-                                    String password, int age) {
+                                    String password, int age, String residentialAddress, String phonenumber) {
         String registerUser = "INSERT INTO User (" +
-                "first_name, last_name, email, password, age)" +
-                "VALUES (?, ?, ?, ?, ?)";
+                "first_name, last_name, email, password, age, residential_address, phone_number)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(URL)) {
             var prepStmt = conn.prepareStatement(registerUser);
@@ -24,8 +24,10 @@ public class UserCrud {
             prepStmt.setString(3, email);
             prepStmt.setString(4, password);
             prepStmt.setInt(5, age);
+            prepStmt.setString(6, residentialAddress);
+            prepStmt.setString(7, phonenumber);
+            prepStmt.execute();
 
-            prepStmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error: " + e);
         }

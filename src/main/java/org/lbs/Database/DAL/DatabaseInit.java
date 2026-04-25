@@ -10,10 +10,10 @@ public class DatabaseInit {
                 + "first_name TEXT NOT NULL,"
                 + "last_name TEXT NOT NULL,"
                 + "age INTEGER,"
-                + "email TEXT UNIQUE,"
+                + "email TEXT UNIQUE NOT NULL,"
                 + "password TEXT NOT NULL,"
                 + "residential_address TEXT NOT NULL,"
-                + "phone_number TEXT NOT NULL)";
+                + "phone_number TEXT)";
 
         String createBooksTable = "CREATE TABLE IF NOT EXISTS Books ("
                 + "Book_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"

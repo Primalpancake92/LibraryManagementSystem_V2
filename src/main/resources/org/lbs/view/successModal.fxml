@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import java.net.URL?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.lbs.Controller.ModalController"
+      alignment="CENTER"
+      spacing="20"
+      prefWidth="700"
+      prefHeight="400"
+      style="-fx-background-color: white;
+             -fx-padding: 30;">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Registration Successful!"
+           style="-fx-font-size: 28px;
+                  -fx-font-weight: bold;
+                  -fx-text-fill: #F07039;" />
+
+    <Label text="Your account has been created successfully."
+           wrapText="true"
+           textAlignment="CENTER"
+           style="-fx-font-size: 16px;
+                  -fx-text-fill: black;" />
+
+    <Button text="Back to login"
+            fx:id="continueBtn"
+            onAction="#backToLogin"
+            prefWidth="160"
+            prefHeight="40"
+            style="-fx-background-color: #F07039;
+                   -fx-text-fill: white;
+                   -fx-font-size: 18px;
+                   -fx-font-weight: bold;
+                   -fx-border-radius: 30px;
+                   -fx-background-radius: 30px;
+                   -fx-border-width: 1px;
+                   -fx-border-color: #F07039;
+                   -fx-cursor: hand;" />
+
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+</VBox>

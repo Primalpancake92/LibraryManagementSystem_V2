@@ -48,7 +48,6 @@
             </Button>
         </HBox>
     </VBox>
-
     <stylesheets>
         <URL value="@styles.css"/>
     </stylesheets>
